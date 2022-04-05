@@ -9,7 +9,7 @@ const wapi = wapiInit("https://auth.web10.app");
 const sirs = [
   {
     service: "translator",
-    cross_origins: ["docs.web10.app", "localhost", "docs.localhost"],
+    cross_origins: ["mamafleet.github.io", "localhost"],
   },
 ];
 wapi.SMROnReady(sirs, []);
