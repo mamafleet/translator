@@ -48,8 +48,10 @@ var getCurve = function (divA, divB) {
 };
 
 function readLines() {
+  if (username.value == "")
+  username.value = "praemium-cranium"
   wapi
-    .read("translator", {}, "praemium-cranium", "api.web10.app")
+    .read("translator", {}, username.value, "api.web10.app")
     .then((response) => displayTranslations(response.data))
     .catch((error) => console.log(error));
 }
@@ -88,8 +90,9 @@ function displayWords(line) {
   return html;
 }
 
+
 function displayLinks(line, count) {
-  console.log(line);
+  svgbox.innerHTML = ""
   line = JSON.parse("[" + line + "]");
   for (const [i, link] of line.entries()) {
     var english = document.getElementById("english" + count).children[link[1]-1];
