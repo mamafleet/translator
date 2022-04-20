@@ -57,6 +57,7 @@ function readLines() {
 }
 
 function displayTranslations(data) {
+  svgbox.innerHTML = ""
   console.log(data);
   var html = "";
   for (const [count, line] of data.entries()) {
@@ -92,7 +93,7 @@ function displayWords(line) {
 
 
 function displayLinks(line, count) {
-  svgbox.innerHTML = ""
+
   line = JSON.parse("[" + line + "]");
   for (const [i, link] of line.entries()) {
     var english = document.getElementById("english" + count).children[link[1]-1];
