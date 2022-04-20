@@ -1,0 +1,46 @@
+.main {
+
+  margin-top: 40px;
+}
+
+
+.latin {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  
+  }
+  
+  .latin div {
+    margin-right: 5px;
+    float: left;
+  }
+  
+  .english {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .english div {
+    margin-right: 5px;
+  
+    float: left;
+  }
+  
+  body {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    color: white;
+  }
+  
+  .arrow {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  

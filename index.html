@@ -1,25 +1,43 @@
 <html>
-<body>
-    <a href="view.html">view</a>
-
-    <button id="authButton">
-        log in
-    </button>
-    <p id="message">
-        app not started
-    </p>
-    <div>
-        <textarea id="latin" placeholder="latin"></textarea>
-        <textarea id="english" placeholder="english"></textarea>
-        <button onclick="createLine(latin.value,english.value)">synthesize</button>
+  <head>
+    <link rel="stylesheet" href="styles.scss" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">  -->
+  </head>
+  <body>
+    <div class="margin">
+      <a href="view.html">view</a>
+      <link rel="stylesheet" href="styles.scss" />
+   <button id="authButton">log in</button>
+      <p id="message">app not started</p>
+      seperat
+      <div class="backendboxes">
+        <textarea
+          id="latin"
+          class="textarea is-primary"
+          placeholder="latin"
+        ></textarea>
+        <textarea
+          id="english"
+          class="textarea is-info"
+          placeholder="english"
+        ></textarea>
+        <textarea
+          id="links"
+          class="textarea is-info"
+          placeholder="[[1,1],[2,2]]"
+        ></textarea>
+        <button
+          id="outer"
+          class="button_slide slide_left"
+          onclick="createLine(latin.value,english.value,links.value)"
+        >
+          Add
+        </button>
+      </div>
+      <div id="lineview"></div>
     </div>
-    <div id="lineview"></div>
-</body>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://auth.web10.app/sdk/wapi.js"></script>
-<script src="script.js"></script>
-
+  </body>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://auth.web10.app/sdk/wapi.js"></script>
+  <script src="script.js"></script>
 </html>
-
-
-

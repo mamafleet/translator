@@ -10,6 +10,8 @@ const sirs = [
   {
     service: "translator",
     cross_origins: ["mamafleet.github.io", "localhost"],
+    whitelist: [{ username: ".*", provider: ".*", read: true }],
+
   },
 ];
 wapi.SMROnReady(sirs, []);
@@ -38,9 +40,9 @@ function readLines() {
       (error) => (message.innerHTML = `${rF} : ${error.response.data.detail}`)
     );
 }
-function createLine(latin, english) {
+function createLine(latin, english, links) {
   wapi
-    .create("translator", { latin: latin, english: english, date: String(new Date()) })
+    .create("translator", { latin: latin, english: english, links: links, date: String(new Date()) })
     .then(() => {
       readLines();
       curr.value = "";
@@ -52,11 +54,12 @@ function createLine(latin, english) {
 function updateLine(id) {
   const latin = String(document.getElementById("latin"+id).value);
   const english = String(document.getElementById("english"+id).value);
+  const links = String(document.getElementById("links"+id).value);
   wapi
     .update(
       "translator",
       { _id: id },
-      { $set: { english: english, latin: latin } }
+      { $set: { english: english, latin: latin, links: links } }
     )
     .then(readLines)
     .catch(
@@ -77,10 +80,11 @@ function displayTranslations(data) {
   function contain(line) {
     return `<div>
                 <p style="font-family:monospace;">${line.date}</p>
-                <textarea id="latin${line._id}">${line.latin}</textarea>
-                <textarea id="english${line._id}">${line.english}</textarea>
-                <button onclick="updateLine('${line._id}')">Update</button>
-                <button onclick="deleteLine('${line._id}')">Delete</button>
+                <textarea class = "textarea is-primary" id="latin${line._id}">${line.latin}</textarea>
+                <textarea class = "textarea is-info" id="english${line._id}">${line.english}</textarea>
+                <textarea class = "textarea is-info" id="links${line._id}">${line.links}</textarea>
+                <button id = "outer" class = "button_slide slide_left" onclick="updateLine('${line._id}')">Update</button>
+                <button id = "outer" class = "button_slide slide_left" onclick="deleteLine('${line._id}')">Delete</button>
             </div>`;
   }
   lineview.innerHTML = data.map(contain).reverse().join(`<br>`);
