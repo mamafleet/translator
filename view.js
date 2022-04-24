@@ -100,7 +100,7 @@ function displayLinks(line, count) {
     var latin = document.getElementById("latin" + count).children[link[0]-1];
     const d = getCurve(english, latin);
     const color = "teal";
-    svgbox.innerHTML += ` <g fill="none" stroke="${color}" stroke-width=".5">
+    svgbox.innerHTML += ` <g fill="none" stroke="${color}" stroke-width="1.50">
                           <path d = "${d}"/>
                       </g>`;
   }
@@ -108,3 +108,4 @@ function displayLinks(line, count) {
 }
 const wapi = wapiInit("https://auth.web10.app");
 readLines();
+

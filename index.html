@@ -7,29 +7,38 @@
     <div class="margin">
       <a href="view.html">view</a>
       <link rel="stylesheet" href="styles.scss" />
-   <button id="authButton">log in</button>
+      <button id="authButton">log in</button>
       <p id="message">app not started</p>
-      seperat
+      <p>enter the lines you want to connect</p>
       <div class="backendboxes">
         <textarea
           id="latin"
           class="textarea is-primary"
-          placeholder="latin"
+          placeholder="language 1"
         ></textarea>
         <textarea
           id="english"
           class="textarea is-info"
-          placeholder="english"
+          placeholder="language 2"
         ></textarea>
+        <p>link the the sequential value of words from the lines</p>
+        <p>
+          i.e: [1,2] [the first word of the first line, the second word of the
+          second line]
+          <p>
+            p.s. experiment, you can always go back and change the lines and links 
+            with the update function
+          </p>
+        </p>
         <textarea
-          id="links"
+          id="connections"
           class="textarea is-info"
-          placeholder="[[1,1],[2,2]]"
+          placeholder="[1,1],[2,2]"
         ></textarea>
         <button
           id="outer"
           class="button_slide slide_left"
-          onclick="createLine(latin.value,english.value,links.value)"
+          onclick="createLine(latin.value,english.value,connections.value)"
         >
           Add
         </button>
