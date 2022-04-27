@@ -1,3 +1,6 @@
+const URLRecipient = new URLSearchParams(window.location.search).get('user');
+if (URLRecipient) username.value = URLRecipient;
+
 var getCurve = function (divA, divB) {
   var posnALeft = {
     x: divA.offsetLeft - 8,
@@ -49,7 +52,9 @@ var getCurve = function (divA, divB) {
 
 function readLines() {
   if (username.value == "")
+
   username.value = "praemium-cranium"
+  history.pushState({}, null, `${window.location.pathname}?user=${username.value}`);
   wapi
     .read("translator", {}, username.value, "api.web10.app")
     .then((response) => displayTranslations(response.data))
@@ -108,4 +113,6 @@ function displayLinks(line, count) {
 }
 const wapi = wapiInit("https://auth.web10.app");
 readLines();
+
+
 
