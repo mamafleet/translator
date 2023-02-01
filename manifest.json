@@ -3,8 +3,8 @@
     "name": "translator",
     "icons": [
         {
-            "src": "translator.jpeg",
-            "type": "image/jpeg",
+            "src": "translator.png",
+            "type": "image/png",
             "sizes": "512x512"
         }
     ],
